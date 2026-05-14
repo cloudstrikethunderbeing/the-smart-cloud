@@ -1,0 +1,160 @@
+import typography from "@tailwindcss/typography";
+import containerQueries from "@tailwindcss/container-queries";
+import animate from "tailwindcss-animate";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: ["class"],
+  content: ["index.html", "src/**/*.{js,ts,jsx,tsx,html,css}"],
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "oklch(var(--border))",
+        input: "oklch(var(--input))",
+        ring: "oklch(var(--ring) / <alpha-value>)",
+        background: "oklch(var(--background))",
+        foreground: "oklch(var(--foreground))",
+        primary: {
+          DEFAULT: "oklch(var(--primary) / <alpha-value>)",
+          foreground: "oklch(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "oklch(var(--secondary) / <alpha-value>)",
+          foreground: "oklch(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "oklch(var(--destructive) / <alpha-value>)",
+          foreground: "oklch(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "oklch(var(--muted) / <alpha-value>)",
+          foreground: "oklch(var(--muted-foreground) / <alpha-value>)",
+        },
+        accent: {
+          DEFAULT: "oklch(var(--accent) / <alpha-value>)",
+          foreground: "oklch(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "oklch(var(--popover))",
+          foreground: "oklch(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "oklch(var(--card))",
+          foreground: "oklch(var(--card-foreground))",
+        },
+        chart: {
+          1: "oklch(var(--chart-1))",
+          2: "oklch(var(--chart-2))",
+          3: "oklch(var(--chart-3))",
+          4: "oklch(var(--chart-4))",
+          5: "oklch(var(--chart-5))",
+        },
+        sidebar: {
+          DEFAULT: "oklch(var(--sidebar))",
+          foreground: "oklch(var(--sidebar-foreground))",
+          primary: "oklch(var(--sidebar-primary))",
+          "primary-foreground": "oklch(var(--sidebar-primary-foreground))",
+          accent: "oklch(var(--sidebar-accent))",
+          "accent-foreground": "oklch(var(--sidebar-accent-foreground))",
+          border: "oklch(var(--sidebar-border))",
+          ring: "oklch(var(--sidebar-ring))",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        body: ["var(--font-sans)", "system-ui", "sans-serif"],
+        accent: ["var(--font-accent)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
+        elevated: "0 4px 12px 0 rgba(0,0,0,0.15)",
+        subtle: "0 2px 4px 0 rgba(0,0,0,0.08)",
+        gold: "0 0 32px 0 oklch(0.72 0.17 70 / 0.45)",
+        "gold-sm": "0 0 16px 0 oklch(0.72 0.17 70 / 0.3)",
+        cyan: "0 0 16px 0 oklch(0.72 0.15 190 / 0.3)",
+        "card-hover": "0 8px 32px 0 rgba(0,0,0,0.4)",
+        "gradient-glow": "0 0 40px rgba(59,130,246,0.35), 0 0 80px rgba(139,92,246,0.2)",
+        "blue-glow": "0 0 20px rgba(59,130,246,0.4)",
+        "inner-glow": "inset 0 0 20px rgba(59,130,246,0.05)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "slide-up": {
+          from: { transform: "translateY(20px)", opacity: "0" },
+          to: { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-in-left": {
+          from: { transform: "translateX(-20px)", opacity: "0" },
+          to: { transform: "translateX(0)", opacity: "1" },
+        },
+        "slide-in-right": {
+          from: { transform: "translateX(20px)", opacity: "0" },
+          to: { transform: "translateX(0)", opacity: "1" },
+        },
+        "pulse-gold": {
+          "0%, 100%": { boxShadow: "0 0 20px 0 oklch(0.72 0.17 70 / 0.3)" },
+          "50%": { boxShadow: "0 0 40px 0 oklch(0.72 0.17 70 / 0.6)" },
+        },
+        "glow-line": {
+          "0%, 100%": { opacity: "0.6" },
+          "50%": { opacity: "1" },
+        },
+        "logo-glow-pulse": {
+          "0%": { filter: "drop-shadow(0 0 30px rgba(59,130,246,0.5)) drop-shadow(0 0 60px rgba(139,92,246,0.25))" },
+          "100%": { filter: "drop-shadow(0 0 50px rgba(59,130,246,0.75)) drop-shadow(0 0 100px rgba(139,92,246,0.4)) drop-shadow(0 0 20px rgba(34,211,238,0.3))" },
+        },
+        "aurora": {
+          "0%": { opacity: "0.5", transform: "scale(1) translateY(0)" },
+          "50%": { opacity: "0.8", transform: "scale(1.05) translateY(-10px)" },
+          "100%": { opacity: "0.5", transform: "scale(1) translateY(0)" },
+        },
+        "progress-fill": {
+          from: { width: "0%" },
+          to: { width: "100%" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.4s ease-out",
+        "slide-up": "slide-up 0.5s ease-out",
+        "slide-in-left": "slide-in-left 0.5s ease-out",
+        "slide-in-right": "slide-in-right 0.5s ease-out",
+        "pulse-gold": "pulse-gold 2.5s ease-in-out infinite",
+        "glow-line": "glow-line 3s ease-in-out infinite",
+        "fade-in-slow": "fade-in 0.8s ease-out",
+        "entrance-logo": "fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0s both",
+        "entrance-content": "slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.75s both",
+        "entrance-world": "fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) 1.35s both",
+        "logo-glow-pulse": "logo-glow-pulse 4s ease-in-out infinite alternate",
+        "aurora": "aurora 8s ease-in-out infinite",
+      },
+    },
+  },
+  plugins: [typography, containerQueries, animate],
+};

@@ -1,0 +1,52 @@
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type ThesisRequest = 
+ record {
+   comment: opt text;
+   email: text;
+   emailStatus: EmailStatus;
+   timestamp: int;
+ };
+type EmailStatus = 
+ variant {
+   Failed;
+   Queued;
+   Sent;
+ };
+service : {
+  _initializeAccessControl: () -> ();
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  checkAdminAccess: () -> (variant {
+                             err: text;
+                             ok: bool;
+                           }) query;
+  getAccessRequests: () -> (variant {
+                              err: text;
+                              ok: vec ThesisRequest;
+                            }) query;
+  getAnalytics: () ->
+   (variant {
+      err: text;
+      ok: record {
+            clickCounts: vec record {
+                               text;
+                               nat;
+                             };
+            visitCount: nat;
+          };
+    }) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getCanisterId: () -> (text) query;
+  isCallerAdmin: () -> (bool) query;
+  requestThesisAccess: (email: text, comment: opt text) ->
+   (variant {
+      err: text;
+      ok: text;
+    });
+  trackClick: (elementId: text) -> ();
+  trackVisit: () -> ();
+}

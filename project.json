@@ -1,0 +1,22 @@
+{
+  "overview": "thesmartcloud.org is a premium, minimal, high-conversion landing page introducing The Smart Cloud — a new internet layer optimized for AI agent performance over human attention. Features a scroll-triggered narrative, thesis email gate, and admin dashboard.",
+  "features": [
+    "Dark mode default with light mode toggle",
+    "11-block scroll-triggered narrative",
+    "Thesis access email gate with 3-stage drip automation",
+    "Admin dashboard with Internet Identity login and analytics",
+    "Smart Cloud logo hero with glow effect",
+    "Premium typography system (Inter + Orbitron accent)",
+    "3 ecosystem destination CTAs"
+  ],
+  "category": "marketing",
+  "tags": [
+    "landing-page",
+    "dark-mode",
+    "ai",
+    "conversion",
+    "admin-dashboard",
+    "email-gate"
+  ],
+  "last_updated": "2026-04-28T04:13:17.882Z"
+}

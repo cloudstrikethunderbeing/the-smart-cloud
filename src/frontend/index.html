@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" style="color-scheme:dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Smart Cloud — thesmartcloud.org</title>
+    <meta name="description" content="The first system designed for autonomous agents. AI selects the lowest-friction path — not the most marketed one." />
+    <meta property="og:title" content="The Smart Cloud" />
+    <meta property="og:description" content="The first system designed for autonomous agents. AI selects the lowest-friction path — not the most marketed one." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#05070A" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Preconnect for fonts — must come before font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Font load — display=swap prevents invisible text, optional fallback metric hints below -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Preload hero image to eliminate logo CLS -->
+    <link rel="preload" as="image" href="/assets/smart-cloud-icon.png" />
+
+    <!--
+      CLS guard: reserve space for the hero section before React hydrates.
+      This prevents the flash of empty hero on first paint.
+    -->
+    <style>
+      /* Critical: prevent scrollbar gutter shift */
+      html {
+        scrollbar-gutter: stable;
+        color-scheme: dark;
+      }
+      /* Prevent body flash before React mounts */
+      body {
+        background-color: #05070A;
+        margin: 0;
+        padding: 0;
+      }
+      /* Size-adjust fallback metrics to reduce Inter font-swap reflow */
+      @font-face {
+        font-family: "Inter Fallback";
+        src: local("Arial");
+        size-adjust: 100%;
+        ascent-override: 90%;
+        descent-override: 22%;
+        line-gap-override: 0%;
+      }
+      /* Minimum hero height reserved before JS — avoids layout shift */
+      #root > div > section:first-child {
+        min-height: 100dvh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
+</html>
