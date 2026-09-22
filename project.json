@@ -1,22 +1,18 @@
 {
-  "overview": "thesmartcloud.org is a premium, minimal, high-conversion landing page introducing The Smart Cloud — a new internet layer optimized for AI agent performance over human attention. Features a scroll-triggered narrative, thesis email gate, and admin dashboard.",
+  "overview": "A mobile-first, iOS-style landing page for The Smart Cloud, a decentralized sovereign cloud infrastructure initiative, featuring ecosystem cards, founder profile, and core technical pillars.",
   "features": [
-    "Dark mode default with light mode toggle",
-    "11-block scroll-triggered narrative",
-    "Thesis access email gate with 3-stage drip automation",
-    "Admin dashboard with Internet Identity login and analytics",
-    "Smart Cloud logo hero with glow effect",
-    "Premium typography system (Inter + Orbitron accent)",
-    "3 ecosystem destination CTAs"
+    "Mobile-first iOS-style card layout with frosted glass effects",
+    "Hero section with cloud logo and live-status badge",
+    "Interactive ecosystem cards linking to OpenAgentOS and Global Compute Reserve",
+    "Founder profile card with LinkedIn and X/Twitter links",
+    "Core pillars bento grid highlighting technical advantages"
   ],
-  "category": "marketing",
+  "category": "landing-page",
   "tags": [
-    "landing-page",
-    "dark-mode",
-    "ai",
-    "conversion",
-    "admin-dashboard",
-    "email-gate"
+    "cloud",
+    "decentralized",
+    "sovereign",
+    "landing-page"
   ],
-  "last_updated": "2026-04-28T04:13:17.882Z"
+  "last_updated": "2026-09-16T03:53:42.974Z"
 }

@@ -1,26 +1,4 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { useActor } from "@caffeineai/core-infrastructure";
-import { createActor } from "../backend";
-
-const PROOF_ITEMS = [
-  "No middlemen",
-  "Fully on-chain compute",
-  "Ranked by real performance",
-  "Built on Internet Computer Protocol",
-];
-
 export default function HeroSection() {
-  const { actor } = useActor(createActor);
-
-  function track(elementId: string) {
-    if (actor) actor.trackClick(elementId).catch(() => {});
-  }
-
   return (
     <section
       data-ocid="hero.section"
@@ -65,12 +43,53 @@ export default function HeroSection() {
       />
 
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-8">
+        {/* ── Badge + live-status pill ───────────────────────── */}
+        <div
+          className="entrance-content inline-flex items-center gap-2.5 rounded-full px-4 py-2"
+          style={{
+            background: "oklch(0.14 0.015 265 / 0.6)",
+            border: "1px solid oklch(var(--border) / 0.5)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+          }}
+          data-ocid="hero.badge"
+        >
+          <span
+            className="w-1.5 h-1.5 rounded-full animate-pulse"
+            style={{
+              background: "oklch(0.7 0.16 150)",
+              boxShadow: "0 0 8px oklch(0.7 0.16 150 / 0.8)",
+            }}
+            aria-hidden="true"
+          />
+          <span
+            className="section-label"
+            style={{ color: "oklch(0.78 0.012 265)" }}
+          >
+            Sovereign Cloud Infrastructure
+          </span>
+          <span
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider"
+            style={{
+              background: "oklch(0.7 0.16 150 / 0.12)",
+              border: "1px solid oklch(0.7 0.16 150 / 0.3)",
+              color: "oklch(0.78 0.14 150)",
+            }}
+            data-ocid="hero.status_pill"
+          >
+            <span
+              className="w-1 h-1 rounded-full bg-current"
+              aria-hidden="true"
+            />
+            Operational
+          </span>
+        </div>
+
         {/* ── Logo container — CLS-safe: explicit space reserved ── */}
         <div
           className="entrance-logo"
           data-ocid="hero.logo"
           style={{
-            /* Reserve exact max space before image loads — prevents reflow */
             width: "clamp(280px, 50vw, 560px)",
             aspectRatio: "1 / 1",
             display: "flex",
@@ -80,7 +99,7 @@ export default function HeroSection() {
         >
           <img
             src="/assets/smart-cloud-icon.png"
-            alt="Smart Cloud — Results Over Attention"
+            alt="The Smart Cloud — Results over attention"
             width={560}
             height={560}
             className="logo-glow-pulse"
@@ -95,14 +114,14 @@ export default function HeroSection() {
         </div>
 
         {/* ── Text group ──────────────────────────────────────── */}
-        <div className="entrance-content flex flex-col items-center gap-8 w-full">
+        <div className="entrance-content flex flex-col items-center gap-6 w-full">
           {/* Headline — gradient for premium feel */}
           <h1
             className="hero-text hero-text-gradient"
             data-ocid="hero.headline"
           >
-            The Smart Cloud
-            <br className="hidden sm:block" /> Has Arrived.
+            From cloud oligopolies
+            <br className="hidden sm:block" /> to trustless on-chain execution.
           </h1>
 
           {/* Subheadline */}
@@ -110,99 +129,23 @@ export default function HeroSection() {
             className="text-lg sm:text-xl md:text-2xl font-sans font-semibold max-w-2xl"
             data-ocid="hero.subheadline"
             style={{
-              color: "oklch(0.92 0.02 70)",
-              letterSpacing: "0.02em",
-              lineHeight: "1.2",
+              color: "oklch(0.92 0.02 265)",
+              letterSpacing: "0.01em",
+              lineHeight: "1.25",
             }}
           >
-            AI doesn't care about brands. It selects what works.
+            The Smart Cloud is the first system designed for autonomous agents —
+            not human attention.
           </p>
 
-          {/* Support line */}
+          {/* Tagline */}
           <p
-            className="text-base md:text-lg max-w-xl font-sans"
-            data-ocid="hero.support"
-            style={{
-              color: "oklch(0.65 0.012 60)",
-              lineHeight: "1.6",
-              fontWeight: "400",
-            }}
+            className="section-label"
+            data-ocid="hero.tagline"
+            style={{ color: "oklch(0.6 0.01 265)" }}
           >
-            The first system designed for autonomous agents — not human
-            attention.
+            Results over attention.
           </p>
-
-          {/* CTA Buttons — clear visual hierarchy */}
-          <div
-            className="flex flex-col items-center gap-3 mt-2 w-full sm:w-auto"
-            data-ocid="hero.cta_group"
-          >
-            {/* PRIMARY — dominant gradient fill */}
-            <TooltipProvider delayDuration={0}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a
-                    href="https://bearlyhuman.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary text-base sm:text-lg min-h-[52px] w-full sm:w-auto px-8 py-4"
-                    data-ocid="hero.primary_button"
-                    onClick={() => track("cta-launch")}
-                  >
-                    Launch Your Agent
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="bottom" sideOffset={8}>
-                  Create, deploy, and rank your own AI agents. No code required.
-                </TooltipContent>
-              </Tooltip>
-
-              {/* SECONDARY — outlined */}
-              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <a
-                      href="https://jackbear.ai"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-secondary text-sm sm:text-base min-h-[44px] w-full sm:w-auto"
-                      data-ocid="hero.secondary_button"
-                      onClick={() => track("cta-learn")}
-                    >
-                      Learn the System
-                    </a>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    Gamified AI academy. Learn before you build.
-                  </TooltipContent>
-                </Tooltip>
-              </div>
-            </TooltipProvider>
-          </div>
-
-          {/* Proof strip */}
-          <div
-            className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4"
-            data-ocid="hero.proof_strip"
-          >
-            {PROOF_ITEMS.map((item, i) => (
-              <span
-                key={item}
-                className="flex items-center gap-2 text-xs section-label"
-                style={{ color: "oklch(0.42 0.008 55)" }}
-                data-ocid={`hero.proof.item.${i + 1}`}
-              >
-                {i > 0 && (
-                  <span
-                    className="w-1 h-1 rounded-full inline-block"
-                    style={{ background: "oklch(0.72 0.17 70 / 0.35)" }}
-                    aria-hidden="true"
-                  />
-                )}
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
 

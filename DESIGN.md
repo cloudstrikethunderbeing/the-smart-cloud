@@ -2,71 +2,75 @@
 
 ## Direction
 
-Luxury Tech Minimalism — a high-conversion landing page for the AI agent economy, executed with brutalist confidence and maximum whitespace.
+Obsidian Mica — a mobile-first, iOS-inspired landing page for The Smart Cloud: deep obsidian/midnight glass with electric blue/cyan + violet accents, built around the cloud logo and the tagline "Results over attention."
 
 ## Tone
 
-Execution over explanation. Deep, warm dark with gold accents (wealth + trust). No hedging. Geometric sans-serif + system-precision type. This system IS; it doesn't apologize.
+Native Apple confidence. Frosted glass/mica surfaces over near-black obsidian, ultra-clean white + muted silver type, electric gradient accents used sparingly. Feels like an iOS system screen, not a marketing page.
 
 ## Differentiation
 
-Mathematical formula (P = 1/(c+l+r+t)) as visual centerpiece with gold outline. Intentional left-side dimming vs. right-side brightness in the Shift section to show the world change visually.
+The cloud logo floats in a blue-purple glow halo as the hero; every card is a frosted mica pane with a glowing gradient border that ignites on hover/touch. Native Cupertino type + fluid display scale make it feel like first-party Apple software.
 
 ## Color Palette
 
-| Token            | OKLCH           | Role                                 |
-|------------------|-----------------|--------------------------------------|
-| background       | 0.12 0.015 50   | Deep warm charcoal (dark mode)       |
-| foreground       | 0.92 0.01 60    | Warm light gray text                 |
-| card             | 0.16 0.018 50   | Elevated card surfaces               |
-| primary (gold)   | 0.72 0.17 70    | CTAs, primary interaction, confidence |
-| accent (cyan)    | 0.72 0.15 190   | Secondary highlights, tech energy    |
-| muted            | 0.18 0.015 50   | Muted backgrounds, dimmed text       |
-| destructive      | 0.65 0.19 22    | Error states                         |
+| Token            | OKLCH           | Role                                  |
+|------------------|-----------------|---------------------------------------|
+| background       | 0.012 0.005 265 | Near-black obsidian (#000–#0a0a0c)    |
+| foreground       | 0.96 0.01 265   | Ultra-clean white (#f5f5f7) text      |
+| card             | 0.09 0.012 265  | Obsidian mica card surface            |
+| primary (blue)   | 0.72 0.16 250   | Electric blue, CTAs, primary accents  |
+| accent (cyan)    | 0.78 0.13 200   | Cyan highlights, secondary accents    |
+| muted            | 0.15 0.012 265  | Muted surfaces, dimmed panels         |
+| muted-foreground | 0.60 0.01 265   | Muted silver (#86868b) text           |
+| violet (gradient)| 0.62 0.18 305   | Gradient tail on glows/borders        |
+| destructive      | 0.62 0.2 25     | Error states                          |
 
 ## Typography
 
-- Display: Space Grotesk — geometric sans for hero, section titles, formula. Bold, tight tracking, 5xl–8xl at hero scale.
-- Body: DM Sans — clean, readable, 16px base, used for supporting text and UI labels.
-- Mono: Geist Mono — formula display and code snippets, monospace precision.
-- Scale: hero 8xl bold tracking-tight, section h2 5xl bold tracking-tight, labels xs uppercase semibold tracking-widest, body text-base md:text-lg.
+- Display: Cupertino system stack (-apple-system / SF Pro Display) — hero, section titles, fluid clamp scale, tight tracking.
+- Body: Cupertino system stack (-apple-system / SF Pro Text) — paragraphs, labels, UI text.
+- Mono: Geist Mono — OPP-LITE formula, code, numeric accents.
+- Scale: hero clamp(2.5rem,9vw,5rem) bold -0.03em, h2 3xl→5xl bold -0.02em, label xs uppercase tracking-widest, body text-base md:text-lg.
 
 ## Elevation & Depth
 
-Minimal shadow hierarchy — cards use subtle borders (1px) instead of shadows. Dark mode surfaces rely on lightness shifts (background 0.12 → card 0.16) for depth. Gold glow on formula (optional shadow-gold). No layered shadows; clean, flat geometry.
+Depth via frosted glass (backdrop-blur-xl + saturate) over layered obsidian, 1px translucent borders, and soft electric/violet glows on hover. Mica cards lift (translateY -4px + scale 1.015) with a gradient border ignition.
 
 ## Structural Zones
 
-| Zone    | Background    | Border | Notes                                                  |
-|---------|---------------|--------|--------------------------------------------------------|
-| Hero    | background    | none   | Full-viewport, centered content, max whitespace        |
-| Section | background    | none   | Alternating content + muted/20 sections for rhythm     |
-| Cards   | card + border  | 1px    | Ecosystem cards, formula container, comparison blocks |
-| Footer  | background/20 | 1px    | Light border-top, footer text muted-foreground         |
+| Zone    | Background       | Border   | Notes                                       |
+|---------|------------------|----------|---------------------------------------------|
+| Header  | background       | none     | Minimal, sticky, no chrome                  |
+| Hero    | background + aurora orbs | none | Cloud logo in glow halo, centered, mix-blend screen |
+| Content | background       | —        | Alternating mica-card bento / full-width panes |
+| Cards   | mica (blur)      | 1px      | Eco cards, founder card, pillars bento grid |
+| Footer  | background/20    | 1px top  | Muted-foreground text, social icon buttons  |
 
 ## Spacing & Rhythm
 
-Vertical rhythm: 6xl/8xl hero headline, 3–4rem gap to subheadline, 4–5rem gap to proof strip, 8–10rem between major sections. No tight grouping — whitespace amplifies importance. Hero CTA buttons stacked or 2-column on mobile, spaced 1rem apart. Comparison cards sit 2rem apart in a grid.
+Mobile-first: cards full-width stacked with 1rem gaps, grid on md+. Section gaps 6–10rem, hero 8xl vertical. Micro-spacing 0.5–1rem inside cards. Min 44px touch targets on all buttons and icon buttons.
 
 ## Component Patterns
 
-- **Buttons**: gold primary (bg-primary text-primary-foreground), cyan secondary (bg-accent text-accent-foreground), 3rem min-height, semibold, rounded-sm (subtle 6px), hover:opacity-90 transition.
-- **Cards**: bg-card border border-border rounded-sm. Formula container has gold border (border-primary) + optional gold shadow. Comparison cards: left .comparison-old (muted/20), right .comparison-new (primary/10).
-- **Proof Strip**: horizontal flex, muted-foreground text, gold underline or top-border.
+- Buttons: pill (rounded-full), min 3rem height, primary = electric gradient fill + glow, secondary = frosted glass border, hover scale 1.02, active scale 0.97.
+- Cards: mica-card rounded-[1.75rem], backdrop-blur-xl, 1px translucent border, gradient glow border on hover, lift + scale.
+- Badges: rounded-full pill, muted/20 bg, accent dot, uppercase xs label.
+- Icon buttons: 3rem circle (min 44px), frosted glass, hover scale 1.04.
 
 ## Motion
 
-- Entrance: fade-in (0.4s) + slide-up (0.5s) staggered for hero elements. Section content reveals on scroll.
-- Hover: buttons transition-smooth (0.3s) with opacity-90. No scale or complex transforms.
-- Decorative: pulse-gold (2s infinite) on formula, optional. No bouncing or overstated animations.
+- Entrance: staged fade-in + slide-up (logo 0s, content 0.75s, world 1.35s).
+- Hover: cards lift + scale 1.015 with gradient border, buttons scale 1.02, 0.35s spring-like cubic-bezier.
+- Decorative: logo-glow-pulse (4s), aurora-pulse (8s) ambient orbs. No bouncing.
 
 ## Constraints
 
-- Mobile-first: all text sizes scale from sm to md/lg breakpoints. CTA buttons full-width on mobile, 1/3 width on md+.
-- No decoration: no gradients, no patterns, no textures — clean flat surfaces only.
-- Whitespace-first: every section must have 8rem+ vertical gap. No crowding.
-- Dark mode primary: execute in dark, light mode optional.
+- Mobile-first: all text fluid via clamp, cards full-width on mobile, bento grid on md+.
+- Cupertino system font stack — no external font download for UI.
+- Frosted glass/mica + subtle borders; glows reserved for hover and the hero logo.
+- Dark mode only; min 44px touch targets; no BarelyHuman.ai / JackBear.ai links.
 
 ## Signature Detail
 
-Large monospace formula (P = 1/(c+l+r+t)) centered on its own section with gold outline and subtle pulse animation — the mathematical heart of agent selection logic made visual.
+The cloud logo as a self-luminous hero — purple-to-cyan gradient cloud with infinity + circuitry, mix-blend screen, breathing blue-purple glow halo — the single unforgettable focal point above the frosted ecosystem cards.

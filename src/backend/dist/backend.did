@@ -20,14 +20,19 @@ type EmailStatus =
 service : {
   _initializeAccessControl: () -> ();
   assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  /// Check whether the calling principal is an admin.
+  /// Returns #ok(true) if authorized, #err("NotAuthorized") otherwise.
   checkAdminAccess: () -> (variant {
                              err: text;
                              ok: bool;
                            }) query;
+  /// Return all access requests — admin use only.
+  /// Non-admin callers receive a #NotAuthorized error.
   getAccessRequests: () -> (variant {
                               err: text;
                               ok: vec ThesisRequest;
                             }) query;
+  /// Return visit and click analytics — admin only.
   getAnalytics: () ->
    (variant {
       err: text;
@@ -40,13 +45,18 @@ service : {
           };
     }) query;
   getCallerUserRole: () -> (UserRole) query;
+  /// Return the canister's own principal ID as text. No auth required.
   getCanisterId: () -> (text) query;
   isCallerAdmin: () -> (bool) query;
+  /// Submit a thesis access request and trigger the 3-email drip sequence.
+  /// Returns #ok("Request received") on success or #err(reason) on validation failure.
   requestThesisAccess: (email: text, comment: opt text) ->
    (variant {
       err: text;
       ok: text;
     });
+  /// Increment the click counter for a given element ID. No auth required.
   trackClick: (elementId: text) -> ();
+  /// Increment the global visit counter. No auth required.
   trackVisit: () -> ();
 }
